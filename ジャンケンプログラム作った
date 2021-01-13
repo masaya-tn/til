@@ -1,0 +1,48 @@
+puts "何本勝負？(press 1 or 3 or 5)"
+battle_times = gets.to_i
+puts "#{battle_times}本勝負を選びました"
+
+hands = ["g", "c", "p"]
+
+def handchoice(hand, player)
+    if hand == "g"
+        puts "#{player}…グー"
+    elsif hand == "c"
+        puts "#{player}…チョキ"
+    else
+        puts "#{player}…パー"
+    end
+end
+
+a = 1
+player = 0
+cpu = 0
+
+battle_times.times do
+    puts "#{a}本目"
+    puts "ジャンケン(press g or c or p)"
+    hand = gets.chomp
+    cpu_hand = hands[rand(3)]
+    handchoice(cpu_hand, "CPU")
+    handchoice(hand, "あなた")
+    if hand == cpu_hand
+        puts "引き分け"
+    elsif hand == "g" && cpu_hand == "c" || hand == "c" && cpu_hand == "p" || hand == "p" && cpu_hand == "g"
+        player += 1
+        puts "勝ち！"
+    elsif hand == "g" && cpu_hand == "p" || hand == "c" && cpu_hand == "g" || hand == "p" && cpu_hand == "c"
+        cpu += 1
+        puts "負け"
+    else
+        puts "引き分け"
+    end
+    a += 1
+end
+puts "#{player}勝#{cpu}敗"
+if player > cpu
+    puts "#{player}勝#{cpu}敗であなたの勝ち"
+elsif player < cpu
+    puts "#{player}勝#{cpu}敗であなたの負け"
+else
+    puts "引き分け"
+end
