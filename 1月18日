@@ -1,0 +1,10 @@
+割と早起きできた
+
+•現場railsでテストを勉強したので軽くまとめる
+
+describe,contextでテストの対象を記述する
+before,itでテストコードを実行する
+テストする際に必要となるテスト用のデータをFactoryBotで作る
+itの中身は "expect(page).to have_content 'コンテンツ'" のように書くが、このhave_contentの部分をMatcherという
+before,let,shared_examplesなどを利用してコードをdryにできる
+
