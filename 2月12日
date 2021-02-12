@@ -1,0 +1,17 @@
+インスタクローンで検索機能を実装
+・フォームオブジェクト
+https://tech.medpeer.co.jp/entry/2017/05/09/070758
+https://qiita.com/9ro/items/10e3676741e09ffb98bb
+この辺を読んで概要は理解したつもり
+
+・collection,member
+ルーティングで使う
+collectionはデータ全体に対するアクションの時
+memberは特定のデータに対するアクションの時
+
+・params.fetch(:q, {})
+def search_post_params
+   params.fetch(:q, {}).permit(:body, :comment_body, :username) 
+end
+で出てきた
+params[:q]が空の場合{}を、params[:q]が空でない場合はparams[:q]を返してくれるらしい
